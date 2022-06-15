@@ -4,5 +4,14 @@
 // learn more: https://github.com/testing-library/jest-dom
 import { init } from '@rematch/core';
 import '@testing-library/jest-dom';
+import { test_mod } from './store/models/Test.model';
 
-export const sample_store = init({});
+export const sample_store = init({
+    models: {
+        test_mod: {
+            state: {
+                age: 0
+            }
+        }
+    }
+});
