@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.scss';
+import { routeManager } from './routing';
 import { RootState } from './store';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Age Test: {testState.age}</p>
+        {routeManager()}
       </header>
     </div>
   );

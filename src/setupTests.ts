@@ -7,11 +7,11 @@ import '@testing-library/jest-dom';
 import { test_mod } from './store/models/Test.model';
 
 export const sample_store = init({
-    models: {
-        test_mod: {
-            state: {
-                age: 0
-            }
-        }
-    }
+  models: {
+    test_mod: {
+      state: {
+        age: 0,
+      },
+    },
+  },
 });
