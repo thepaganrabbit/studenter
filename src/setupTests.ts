@@ -5,6 +5,4 @@
 import { init } from '@rematch/core';
 import '@testing-library/jest-dom';
 
-export const sample_store = init({
-	
-})
+export const sample_store = init({});
