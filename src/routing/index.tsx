@@ -1,0 +1,31 @@
+import React from 'react';
+import {
+  IndexRouteProps,
+  LayoutRouteProps,
+  PathRouteProps,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import short from 'short-uuid';
+
+import Home from '../pages/Home/Home';
+
+// --> list of routes
+export const routes: PathRouteProps[] | LayoutRouteProps[] | IndexRouteProps[] =
+  [
+    {
+      path: '/',
+      element: <Home />,
+      index: true,
+    } as IndexRouteProps,
+  ];
+
+export const routeManager = () => {
+  return (
+    <Routes>
+      {routes.map((route) => (
+        <Route {...route} key={short.generate()} />
+      ))}
+    </Routes>
+  );
+};
