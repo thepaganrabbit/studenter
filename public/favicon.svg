@@ -1,0 +1,13 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat'" font-size="250" id="svg_1" y="375.66667" x="317" stroke-width="0" stroke="#000" fill="#00ffff">S</text>
+  <line stroke-width="12" id="svg_2" y2="456.66667" x2="391" y1="147.66667" x1="118" stroke="#000" fill="none"/>
+  <line stroke-width="12" id="svg_5" y2="122.66667" x2="669" y1="457.66667" x1="399" stroke="#000" fill="none"/>
+  <ellipse ry="17" rx="20.5" id="svg_6" cy="485.66667" cx="393.5" stroke-width="12" stroke="#000" fill="none"/>
+  <ellipse ry="77.5" rx="77.5" id="svg_8" cy="376.16667" cx="159.5" stroke-width="0" stroke="#000" fill="#5b0202"/>
+  <ellipse ry="77.5" rx="77.5" id="svg_9" cy="394.16667" cx="614.5" stroke-width="0" stroke="#000" fill="#5b0202"/>
+  <ellipse ry="6" rx="50" id="svg_10" cy="364.66667" cx="189" stroke-width="0" stroke="#000" fill="#5b0202"/>
+ </g>
+</svg>
