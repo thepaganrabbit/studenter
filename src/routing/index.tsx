@@ -20,8 +20,12 @@ export const routes: PathRouteProps[] | LayoutRouteProps[] | IndexRouteProps[] =
       index: true,
     } as IndexRouteProps,
     {
-        path: '/guard',
-        element: <SampleGuard><Home /></SampleGuard>,
+      path: '/guard',
+      element: (
+        <SampleGuard>
+          <Home />
+        </SampleGuard>
+      ),
     } as PathRouteProps,
   ];
 
