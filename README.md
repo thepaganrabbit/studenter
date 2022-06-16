@@ -1,8 +1,8 @@
-# Studenter
+# Base Template
 
 **Description**
 
-A web application to manage students.
+This is a base template setup with all the basics. 
 
 
 ### Tech
@@ -12,3 +12,4 @@ A web application to manage students.
 3. Rematch
 4. Scss
 5. Bulma
+6. React-Router
