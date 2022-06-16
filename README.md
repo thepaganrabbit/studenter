@@ -37,7 +37,7 @@ export const routeManager = () => {
 
 Route Guards:
 
-Protected routes can be as simple as awrapper component or possibly a HOC is there are shared values. Below is a simple example which also is present in the base project.
+Protected routes can be as simple as a wrapper component or possibly a HOC is there are shared values. Below is a simple example which also is present in the base project.
 
 ```TypeScript
 // Route Guard
