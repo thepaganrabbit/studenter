@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
     "@rematch/core": "^2.2.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -12,6 +16,7 @@
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
     "bulma": "^0.9.4",
+    "mui-datatables": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -49,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/mui-datatables": "^3.7.9",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "node-sass": "^7.0.1",

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DataTable from '../../components/DataTable';
 
 const Home = (): React.ReactElement => {
   return (
@@ -9,6 +10,7 @@ const Home = (): React.ReactElement => {
         <Link to={'/guard'}>Guarded Home</Link>
       </div>
       <p>Hello</p>
+      <DataTable data={[] as Array<string>} title="Test" columns={[]} />
     </div>
   );
 };

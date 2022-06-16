@@ -13,6 +13,7 @@
   ],
   "rules": {
     "no-console": 1,       
-    "prettier/prettier": 1 
+    "prettier/prettier": 1,
+    "@typescript-eslint/ban-ts-comment": 0
   }
 }
