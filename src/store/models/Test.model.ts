@@ -2,25 +2,22 @@ import { createModel } from '@rematch/core';
 import { RootModel } from '../../types';
 
 type ComplexTestState = {
-  name: string;
-  age: number;
+  version: string;
 };
 
 export const test_mod = createModel<RootModel>()({
   state: {
-    name: '',
-    age: 33,
+    version: '0.0.1',
   } as ComplexTestState,
   reducers: {
-    increment(state, payload: number) {
+    increment(state, payload: string) {
       return {
-        name: '',
-        age: payload,
+        version: payload,
       };
     },
   },
   effects: (dispatch) => ({
-    incrementEffect(payload: number) {
+    incrementEffect(payload: string) {
       dispatch.count.increment(payload);
     },
   }),
