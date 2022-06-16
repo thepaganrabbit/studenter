@@ -9,6 +9,7 @@ import {
 import short from 'short-uuid';
 
 import Home from '../pages/Home/Home';
+import SampleGuard from './guards/sample.guard';
 
 // --> list of routes
 export const routes: PathRouteProps[] | LayoutRouteProps[] | IndexRouteProps[] =
@@ -18,6 +19,10 @@ export const routes: PathRouteProps[] | LayoutRouteProps[] | IndexRouteProps[] =
       element: <Home />,
       index: true,
     } as IndexRouteProps,
+    {
+        path: '/guard',
+        element: <SampleGuard><Home /></SampleGuard>,
+    } as PathRouteProps,
   ];
 
 export const routeManager = () => {
