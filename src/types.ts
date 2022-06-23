@@ -17,3 +17,8 @@ export interface DataTableProps {
   columns: MUIDataTableColumnDef[];
   options?: MUIDataTableOptions;
 }
+
+
+export interface HeaderProps {
+  color?: string;
+}

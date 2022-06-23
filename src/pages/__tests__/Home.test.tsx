@@ -14,13 +14,4 @@ describe('Home Tests', () => {
   it('should render to screen', () => {
     expect(exec()).toBeDefined();
   });
-
-  it('should render a link', async () => {
-    const link = await exec().container.querySelector('a');
-    expect(link?.innerHTML).toBe('Home');
-  });
-  it('should render a p', async () => { 
-    const p = await exec().container.querySelector('p')?.innerHTML;
-    expect(p).toBeDefined();
-   })
 });

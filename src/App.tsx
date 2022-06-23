@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Version: {testState.version}</p>
         {routeManager()}
       </header>
     </div>
