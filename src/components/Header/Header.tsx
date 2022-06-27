@@ -1,13 +1,16 @@
 import React from 'react';
-import { HeaderProps } from '../../types';
 
 import './header.scss';
+import { ThemeContext } from '../../theme/index';
+import { ThemeBuilder } from '../../utils/ThemeBuilder';
 
-const Header = ({ color }: HeaderProps) => {
+const Header = () => {
+  const themeCtx = React.useContext<ThemeBuilder>(ThemeContext);
   return (
     <div
       className="custom-header"
-      style={{ background: color ? color : 'blue' }} />
+      style={{ background: themeCtx.getBackgroundColor() }}
+    />
   );
 };
 
