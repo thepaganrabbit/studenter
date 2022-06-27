@@ -1,6 +1,7 @@
 import {
   Backgrounds,
   Colors,
+  ColorsByMode,
   ModeSelect,
   TextColors,
   ThemeBuilderProps,
@@ -18,6 +19,9 @@ export class ThemeBuilder implements Theming {
   private tintColorLight!: string;
   private tintColorDark!: string;
   private tintColorPale!: string;
+  private complimentaryColorLight!: string;
+  private complementaryColorDark!: string;
+  private complementaryColorPale!: string;
   private highlight!: string;
   private tint!: string;
   private mode!: ModeSelect;
@@ -88,6 +92,41 @@ export class ThemeBuilder implements Theming {
         return this.tintColorPale;
       default:
         return this.tintColorLight;
+    }
+  }
+  getComplementaryColors(): string {
+    switch (this.mode) {
+      case ModeSelect.DARK:
+        return this.complementaryColorDark;
+      case ModeSelect.PALE:
+        return this.complementaryColorPale;
+      default:
+        return this.complimentaryColorLight;
+    }
+  }
+  getColorsByMode(): ColorsByMode {
+    switch (this.mode) {
+      case ModeSelect.DARK:
+        return {
+          background: this.backgroundDark,
+          text: this.textColorDark,
+          tint: this.tintColorDark,
+          complementary: this.complementaryColorDark,
+        };
+      case ModeSelect.PALE:
+        return {
+          background: this.backgroundPale,
+          text: this.textColorPale,
+          tint: this.tintColorPale,
+          complementary: this.complementaryColorPale,
+        };
+      default:
+        return {
+          background: this.backgroundLight,
+          text: this.textColorLight,
+          tint: this.tintColorLight,
+          complementary: this.complimentaryColorLight,
+        };
     }
   }
 }

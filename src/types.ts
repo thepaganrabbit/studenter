@@ -3,10 +3,12 @@ import { MUIDataTableColumnDef, MUIDataTableOptions } from 'mui-datatables';
 import { ReactElement, ReactNode } from 'react';
 import { test_mod } from './store/models/Test.model';
 
+// Store
 export interface RootModel extends Models<RootModel> {
   test_mod: typeof test_mod;
 }
 
+// Component Props
 export type PropsBase = {
   children: ReactElement[] | ReactNode[] | ReactElement | ReactNode;
 };
@@ -18,6 +20,12 @@ export interface DataTableProps {
   options?: MUIDataTableOptions;
 }
 
+export interface ButtonProps {
+  children: string;
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+// Theming
 export interface ColorProfile {
   origin: string;
   tint?: string;
@@ -36,19 +44,11 @@ export enum ModeSelect {
   PALE = 'PALE',
 }
 
-export interface DarkMode {
-  backgroundDark: string;
-  textColorDark: string;
-}
-
-export interface LightMode {
-  backgroundLight: string;
-  textColorLight: string;
-}
-
-export interface PaleMode {
-  backgroundPale: string;
-  textColorPale: string;
+export interface ColorsByMode {
+  background: string;
+  text: string;
+  tint: string;
+  complementary: string;
 }
 
 export type ThemeBuilderProps = {
@@ -62,6 +62,9 @@ export type ThemeBuilderProps = {
   tintColorLight: string;
   tintColorDark: string;
   tintColorPale: string;
+  complimentaryColorLight: string;
+  complementaryColorDark: string;
+  complementaryColorPale: string;
   highlight: string;
   tint: string;
   mode: ModeSelect;
@@ -90,4 +93,6 @@ export interface Theming {
   getBackgroundColor(): string;
   getTextColor(): string;
   getTint(): string;
+  getComplementaryColors(): string;
+  getColorsByMode(): ColorsByMode;
 }
