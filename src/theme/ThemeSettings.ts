@@ -13,6 +13,9 @@ export const THEMESETTINGS: ThemeBuilderProps = {
   tintColorLight: '#F0F9F6',
   tintColorDark: '#167D7F',
   tintColorPale: '#29A0B1',
+  complimentaryColorLight: '#C15F80',
+  complementaryColorDark: '#7F1816',
+  complementaryColorPale: '#E27E79',
   mode: ModeSelect.LIGHT,
   colors: {
     primary: {
