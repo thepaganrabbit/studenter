@@ -1,0 +1,16 @@
+.with-components {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .top {
+    position: fixed;
+  }
+  .base {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    .bod {
+      padding: 1rem;
+    }
+  }
+}

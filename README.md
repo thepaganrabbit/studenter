@@ -6,7 +6,7 @@ A web application to manage students. The backend or API will be built using Nes
 
 ### Template
 
-If anyone is interested in the base of the project it is available as the template branch. 
+If anyone is interested in the base of the project it is available as the template branch.
 
 #### A Little about the project structure.
 
@@ -76,7 +76,7 @@ Generally all the application types are in the types.ts file, so when creating n
 
 ## Theming
 
-(experimental) The applications theme will be managed in the theme folder using a theme builder class and passed to context. 
+(experimental) The applications theme will be managed in the theme folder using a theme builder class and passed to context.
 
 ```TypeScript
 export const THEMESETTINGS: ThemeBuilderProps = {
@@ -118,7 +118,93 @@ export const ThemeContext = React.createContext<ThemeBuilder>(theme);
 
 ```
 
-This is added but not tested yet or in full use yet. 
+This is added but not tested yet or in full use yet.
+
+Using it: 
+
+```TypeScript
+const Button = ({ children, onClick }: ButtonProps) => {
+  const themeCtx = React.useContext<ThemeBuilder>(ThemeContext);
+  return (
+    <button
+      className="button is-responsive"
+      style={{
+        backgroundColor: themeCtx.getColorsByMode().tint,
+        width: '100%',
+      }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+## DataTable
+
+Reusable table in the application. (not fully hooked up)
+
+```TypeScript
+const SampleTableUse = () => {
+  // for this example pulling from store
+   const students = useSelector(
+    (state: RootState) => state.student_mod.students,
+  );
+  // Memoized data to prevent too many re renders (basic init)
+  const memoizedStudents = React.useMemo(() => {
+    return students;
+  }, [students]);
+  // Setup the columns (Might put this in use effect depending on renders)
+  const studentColumns: MUIDataTableColumnDef[] = [
+    {
+      label: 'ID',
+      name: 'id',
+    },
+    {
+      label: 'First Name',
+      name: 'firstName',
+    },
+    {
+      label: 'Last Name',
+      name: 'lastName',
+    },
+    {
+      label: 'Middle Initial',
+      name: 'middleInitial',
+    },
+    {
+      label: 'Class',
+      name: 'class',
+    },
+    {
+      label: 'Class',
+      name: 'class',
+    },
+    {
+      label: 'GPA',
+      name: 'gpa',
+    },
+    {
+      label: 'File Reference #',
+      name: 'fileLink',
+    },
+  ];
+  return (
+    <div className="container-room">
+      <div
+        className="table"
+      >
+        <DataTable
+          title={'Students'}
+          data={memoizedStudents}
+          columns={studentColumns}
+        />
+      </div>
+    </div>
+  );
+}
+
+```
 
 ### Tech
 

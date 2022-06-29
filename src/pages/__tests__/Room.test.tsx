@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Home from '../Home/Home';
 import { sample_store } from '../../setupTests';
 import { Provider } from 'react-redux';
 import { theme, ThemeContext } from '../../theme';
+import Room from '../Room/Room';
 
 describe('Home Tests', () => {
   const exec = () => {
@@ -12,7 +12,7 @@ describe('Home Tests', () => {
       <BrowserRouter>
         <ThemeContext.Provider value={theme}>
           <Provider store={sample_store}>
-            <Home />
+            <Room />
           </Provider>
         </ThemeContext.Provider>
       </BrowserRouter>,
@@ -20,8 +20,12 @@ describe('Home Tests', () => {
   };
   beforeEach(() => {
     console.error = jest.fn();
-  })
+  });
   it('should render to screen', () => {
     expect(exec()).toBeDefined();
+  });
+  it('should render a data table', async () => {
+    const table = await exec().findByLabelText('Table Toolbar');
+    expect(table).toBeDefined();
   });
 });

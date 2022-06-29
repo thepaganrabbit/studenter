@@ -1,16 +1,15 @@
 import React from 'react';
 
-import Header from '../../components/Header/Header';
-import SideNav from '../../components/SideNav/SideNav';
 import './home.scss';
+import withComponents from '../../HOC/withComponents/PageComponents';
+import Room from '../Room/Room';
 
 const Home = (): React.ReactElement => {
   return (
     <div className="home">
-      <Header />
-      <SideNav />
+      <Room />
     </div>
   );
 };
 
-export default Home;
+export default withComponents(Home);

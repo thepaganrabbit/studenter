@@ -12,5 +12,20 @@ export const sample_store = init({
         age: 0,
       },
     },
+    student_mod: {
+      state: {
+        students: [
+          {
+            firstName: 'Bob',
+            lastName: 'Blobly',
+            middleInitial: 'C',
+            class: 1,
+            id: '134323',
+            gpa: 3.0,
+            fileLink: 'FR878',
+          },
+        ],
+      },
+    },
   },
 });
