@@ -19,7 +19,7 @@ describe('Home Tests', () => {
     );
   };
   beforeEach(() => {
-    console.error = jest.fn();
+    
   });
   it('should render to screen', () => {
     expect(exec()).toBeDefined();

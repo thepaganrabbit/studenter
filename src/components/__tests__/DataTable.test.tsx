@@ -13,13 +13,12 @@ describe('DataTable Test', () => {
     return render(<DataTable {...props} />);
   };
 
-  beforeEach(() => {
-    console.error = jest.fn();
-  });
   it('should render to screen', async () => {
     expect(await exec(sampleProps)).toBeDefined();
   });
   it('should render a title', async () => {
-    expect(await exec(sampleProps).container.querySelector('h6')?.innerHTML).toBe('test');
+    expect(
+      await exec(sampleProps).container.querySelector('h6')?.innerHTML,
+    ).toBe('test');
   });
 });

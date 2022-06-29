@@ -7,16 +7,11 @@ describe('DataTable Test', () => {
     return render(<Header />);
   };
 
-  beforeEach(() => {
-    console.error = jest.fn();
-  });
   it('should render to screen', async () => {
     expect(await exec()).toBeDefined();
   });
   it('should render a title', async () => {
-    const div = await exec().container.querySelector(
-      '.custom-header',
-    );
-    expect(div?.getAttribute('style')).toContain('background:')
+    const div = await exec().container.querySelector('.custom-header');
+    expect(div?.getAttribute('style')).toContain('background:');
   });
 });
