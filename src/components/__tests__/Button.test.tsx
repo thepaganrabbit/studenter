@@ -8,23 +8,22 @@ describe('Button Test', () => {
     return render(<Button {...props} />);
   };
 
-  beforeEach(() => {
-    console.error = jest.fn();
-  });
   it('should render to screen', async () => {
-    expect(await exec({children: 'hello', onClick: jest.fn()})).toBeDefined();
+    expect(await exec({ children: 'hello', onClick: jest.fn() })).toBeDefined();
   });
   it('should render a buttons text', async () => {
-    const button = await exec({children: 'hello', onClick: jest.fn()}).container.querySelector(
-      'button',
-    );
+    const button = await exec({
+      children: 'hello',
+      onClick: jest.fn(),
+    }).container.querySelector('button');
     expect(button?.innerHTML).toBe('hello');
   });
   it('should call mock on click', async () => {
     const mock = jest.fn();
-    const button = await exec({children: 'hello', onClick: mock}).container.querySelector(
-      'button',
-    ) as HTMLButtonElement;
+    const button = (await exec({
+      children: 'hello',
+      onClick: mock,
+    }).container.querySelector('button')) as HTMLButtonElement;
     fireEvent.click(button);
     expect(mock).toHaveBeenCalled();
   });
