@@ -9,6 +9,7 @@ const DataTable = ({ data, columns, options, title }: DataTableProps) => {
     <ThemeProvider theme={createTheme()}>
       <MUIDataTable
         title={title}
+        data-testid="custom-datatable"
         data={data}
         columns={columns}
         options={options}

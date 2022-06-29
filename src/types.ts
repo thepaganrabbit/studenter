@@ -2,10 +2,22 @@ import { Models } from '@rematch/core';
 import { MUIDataTableColumnDef, MUIDataTableOptions } from 'mui-datatables';
 import { ReactElement, ReactNode } from 'react';
 import { test_mod } from './store/models/Test.model';
+import { student_mod } from './store/models/Student.model';
 
 // Store
 export interface RootModel extends Models<RootModel> {
   test_mod: typeof test_mod;
+  student_mod: typeof student_mod;
+}
+
+export interface Student {
+  firstName: string;
+  lastName: string;
+  middleInitial: string;
+  class: number;
+  id: string;
+  gpa?: number | null;
+  fileLink?: string | undefined;
 }
 
 // Component Props

@@ -18,7 +18,7 @@ export const test_mod = createModel<RootModel>()({
   },
   effects: (dispatch) => ({
     incrementEffect(payload: string) {
-      dispatch.count.increment(payload);
+      dispatch.test_mod.increment(payload);
     },
   }),
 });
