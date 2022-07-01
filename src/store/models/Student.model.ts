@@ -13,7 +13,7 @@ export const student_mod = createModel<RootModel>()({
         lastName: 'Blobly',
         middleInitial: 'C',
         class: 1,
-        id: '134323',
+        studentId: '134323',
         gpa: 3.0,
         fileLink: 'FR878',
       },

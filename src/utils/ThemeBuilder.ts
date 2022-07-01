@@ -3,6 +3,7 @@ import {
   Colors,
   ColorsByMode,
   ModeSelect,
+  StatusColors,
   TextColors,
   ThemeBuilderProps,
   Theming,
@@ -19,10 +20,18 @@ export class ThemeBuilder implements Theming {
   private tintColorLight!: string;
   private tintColorDark!: string;
   private tintColorPale!: string;
+  private warningColorLight!: string;
+  private warningColorDark!: string;
+  private warningColorPale!: string;
+  private dangerColorLight!: string;
+  private dangerColorDark!: string;
+  private dangerColorPale!: string;
+  private successColorLight!: string;
+  private successColorDark!: string;
+  private successColorPale!: string;
   private complimentaryColorLight!: string;
   private complementaryColorDark!: string;
   private complementaryColorPale!: string;
-  private highlight!: string;
   private tint!: string;
   private mode!: ModeSelect;
   currentBackground!: string;
@@ -126,6 +135,28 @@ export class ThemeBuilder implements Theming {
           text: this.textColorLight,
           tint: this.tintColorLight,
           complementary: this.complimentaryColorLight,
+        };
+    }
+  }
+  getStatusColors(): StatusColors {
+    switch (this.mode) {
+      case ModeSelect.DARK:
+        return {
+          warning: this.warningColorDark,
+          success: this.successColorDark,
+          danger: this.dangerColorDark,
+        };
+      case ModeSelect.PALE:
+        return {
+          warning: this.warningColorPale,
+          success: this.successColorPale,
+          danger: this.dangerColorPale,
+        };
+      default:
+        return {
+          warning: this.warningColorLight,
+          success: this.successColorLight,
+          danger: this.dangerColorLight,
         };
     }
   }

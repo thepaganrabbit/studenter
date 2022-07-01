@@ -1,0 +1,14 @@
+.msg-box {
+    position: relative;
+  .actions {
+    display: flex;
+    position: absolute;
+    z-index: 1000000;
+    left: 65%;
+    top: -10px;
+  }
+  .base-actions {
+    text-align: right;
+    padding-right: 0.5rem;
+  }
+}
