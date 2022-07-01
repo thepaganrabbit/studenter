@@ -3,21 +3,51 @@ import { MUIDataTableColumnDef, MUIDataTableOptions } from 'mui-datatables';
 import { ReactElement, ReactNode } from 'react';
 import { test_mod } from './store/models/Test.model';
 import { student_mod } from './store/models/Student.model';
+import { message_mod } from './store/models/Messages.model';
 
 // Store
 export interface RootModel extends Models<RootModel> {
   test_mod: typeof test_mod;
   student_mod: typeof student_mod;
+  message_mod: typeof message_mod;
 }
+
+export type StudentId = string;
+export type UserId = string;
+export type InstructorId = string;
+export type ObjectId = string;
 
 export interface Student {
   firstName: string;
   lastName: string;
   middleInitial: string;
   class: number;
-  id: string;
+  studentId: StudentId;
   gpa?: number | null;
   fileLink?: string | undefined;
+}
+
+export interface CaptureUser {
+  fromId: StudentId | InstructorId;
+  name: string;
+}
+
+export interface Replies {
+  from: CaptureUser;
+  reply: string;
+  date: Date | string;
+}
+
+export interface Message {
+  _id: ObjectId;
+  title: string;
+  sender: CaptureUser;
+  content: string;
+  date: Date | string;
+  status: boolean;
+  replies: Replies[];
+  approved: boolean;
+  to?: CaptureUser;
 }
 
 // Component Props
@@ -35,6 +65,10 @@ export interface DataTableProps {
 export interface ButtonProps {
   children: string;
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface MessageCardProps extends Message {
+  role?: string;
 }
 
 // Theming
@@ -74,6 +108,15 @@ export type ThemeBuilderProps = {
   tintColorLight: string;
   tintColorDark: string;
   tintColorPale: string;
+  warningColorLight: string;
+  warningColorDark: string;
+  warningColorPale: string;
+  dangerColorLight: string;
+  dangerColorDark: string;
+  dangerColorPale: string;
+  successColorLight: string;
+  successColorDark: string;
+  successColorPale: string;
   complimentaryColorLight: string;
   complementaryColorDark: string;
   complementaryColorPale: string;
@@ -94,6 +137,12 @@ export type TextColors = {
   textColorPale: string;
 };
 
+export type StatusColors = {
+  warning: string;
+  success: string;
+  danger: string;
+};
+
 export interface Theming {
   setMode(mode: ModeSelect): void;
   getMode(): string;
@@ -107,4 +156,5 @@ export interface Theming {
   getTint(): string;
   getComplementaryColors(): string;
   getColorsByMode(): ColorsByMode;
+  getStatusColors(): StatusColors;
 }

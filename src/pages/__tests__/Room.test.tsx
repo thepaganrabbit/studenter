@@ -28,4 +28,8 @@ describe('Home Tests', () => {
     const table = await exec().findByLabelText('Table Toolbar');
     expect(table).toBeDefined();
   });
+  it('should render a data table', async () => {
+    const messageBoard = await exec().container.querySelector('.message-board');
+    expect(messageBoard).toBeDefined();
+  });
 });

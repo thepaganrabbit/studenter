@@ -5,6 +5,7 @@ import { RootState } from '../../store';
 import './room.scss';
 import DataTable from '../../components/DataTable/index';
 import { MUIDataTableColumnDef } from 'mui-datatables';
+import MessageBoard from '../../components/MessageBoard/MessageBoard';
 
 const Room = () => {
   const students = useSelector(
@@ -63,6 +64,12 @@ const Room = () => {
           data={memoizedStudents}
           columns={studentColumns}
         />
+      </div>
+      <div className="boards">
+        <div className="b-base">
+          <MessageBoard />
+        </div>
+        <div className="b-base">hello</div>
       </div>
     </div>
   );

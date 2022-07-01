@@ -4,7 +4,7 @@ import { PropsBase } from '../../types';
 const SampleGuard = ({ children }: PropsBase) => {
   React.useEffect(() => {
     alert('Impliment any route guard in here.');
-    return () => {}
+    return () => {};
   }, []);
   return <>{children}</>;
 };
