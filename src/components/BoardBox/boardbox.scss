@@ -1,0 +1,21 @@
+.board-box {
+  min-height: 580px;
+  max-height: 580px;
+  overflow: hidden;
+  padding: 0.8rem;
+  position: relative;
+  .title {
+    text-align: center;
+    h2 {
+      font-weight: 1000;
+      padding: 0.5rem;
+    }
+  }
+  .bb-content {
+    width: 100%;
+    min-height: 460px;
+    max-height: 460px;
+    padding: 0.5rem;
+    overflow: auto;
+  }
+}

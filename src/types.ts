@@ -4,18 +4,22 @@ import { ReactElement, ReactNode } from 'react';
 import { test_mod } from './store/models/Test.model';
 import { student_mod } from './store/models/Student.model';
 import { message_mod } from './store/models/Messages.model';
+import { assignment_mod } from './store/models/Assignment.model';
 
 // Store
 export interface RootModel extends Models<RootModel> {
   test_mod: typeof test_mod;
   student_mod: typeof student_mod;
   message_mod: typeof message_mod;
+  assignment_mod: typeof assignment_mod;
 }
 
 export type StudentId = string;
 export type UserId = string;
 export type InstructorId = string;
 export type ObjectId = string;
+export type date_time = Date | string;
+export type pointsystem = number | boolean;
 
 export interface Student {
   firstName: string;
@@ -50,6 +54,17 @@ export interface Message {
   to?: CaptureUser;
 }
 
+export interface Assignment {
+  _id: string;
+  title: string;
+  description: string;
+  createdOn: date_time;
+  points: pointsystem;
+  dueDate?: date_time;
+  documents?: string[];
+  classId?: string;
+}
+
 // Component Props
 export type PropsBase = {
   children: ReactElement[] | ReactNode[] | ReactElement | ReactNode;
@@ -69,6 +84,20 @@ export interface ButtonProps {
 
 export interface MessageCardProps extends Message {
   role?: string;
+}
+
+export interface AssignmentBlockProps extends Assignment {
+  role?: string;
+}
+
+export interface BoardProps {
+  title: string;
+  children?: any;
+}
+
+export interface TouchableOpacityProps {
+  children: ReactElement;
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 // Theming

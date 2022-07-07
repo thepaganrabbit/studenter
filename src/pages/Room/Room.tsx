@@ -6,6 +6,7 @@ import './room.scss';
 import DataTable from '../../components/DataTable/index';
 import { MUIDataTableColumnDef } from 'mui-datatables';
 import MessageBoard from '../../components/MessageBoard/MessageBoard';
+import AssignmentBoard from '../../components/AssignmentBoard/AssignmentBoard';
 
 const Room = () => {
   const students = useSelector(
@@ -69,7 +70,9 @@ const Room = () => {
         <div className="b-base">
           <MessageBoard />
         </div>
-        <div className="b-base">hello</div>
+        <div className="b-base">
+          <AssignmentBoard />
+        </div>
       </div>
     </div>
   );

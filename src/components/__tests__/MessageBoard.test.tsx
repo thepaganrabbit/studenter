@@ -1,6 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
-import { ButtonProps } from '../../types';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import MessageBoard from '../MessageBoard/MessageBoard';
 import { theme, ThemeContext } from '../../theme';
@@ -21,7 +20,7 @@ describe('MessageBoard Test', () => {
     expect(await exec()).toBeDefined();
   });
   it('renders the message board to the screen', async () => {
-    const msgBrd = await exec().container.querySelector('.message-container');
+    const msgBrd = await exec().container.querySelector('.board-box');
     expect(msgBrd).toBeDefined();
   });
   it('renders the message card to the screen', async () => {

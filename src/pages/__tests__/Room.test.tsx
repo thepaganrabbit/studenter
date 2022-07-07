@@ -18,9 +18,7 @@ describe('Home Tests', () => {
       </BrowserRouter>,
     );
   };
-  beforeEach(() => {
-    
-  });
+  beforeEach(() => {});
   it('should render to screen', () => {
     expect(exec()).toBeDefined();
   });
@@ -28,8 +26,14 @@ describe('Home Tests', () => {
     const table = await exec().findByLabelText('Table Toolbar');
     expect(table).toBeDefined();
   });
-  it('should render a data table', async () => {
+  it('should render a message board', async () => {
     const messageBoard = await exec().container.querySelector('.message-board');
+    expect(messageBoard).toBeDefined();
+  });
+  it('should render a assignment board', async () => {
+    const messageBoard = await exec().container.querySelector(
+      '.assignment-board',
+    );
     expect(messageBoard).toBeDefined();
   });
 });
