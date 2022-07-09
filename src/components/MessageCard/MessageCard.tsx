@@ -5,7 +5,7 @@ import Icon from '@mdi/react';
 import './messagecard.scss';
 import { ThemeBuilder } from '../../utils/ThemeBuilder';
 import { ThemeContext } from '../../theme';
-import { MessageCardProps } from '../../types';
+import { MessageProps } from '../../types';
 
 const MessageCard = ({
   title,
@@ -15,21 +15,26 @@ const MessageCard = ({
   date,
   replies,
   approved,
-}: MessageCardProps) => {
+  isMessagePage,
+}: MessageProps) => {
   const themeCtx = React.useContext<ThemeBuilder>(ThemeContext);
   return (
     <div className="msg-box">
-      <div className="actions">
-        <Icon
-          path={mdiTrashCan}
-          size={1}
-          color={themeCtx.getStatusColors().danger}
-        />
-        <Icon
-          path={mdiPencil}
-          size={1}
-          color={themeCtx.getStatusColors().warning}
-        />
+      <div className="actions" style={{ left: !isMessagePage ? '85%' : '65%' }}>
+        {isMessagePage && (
+          <>
+            <Icon
+              path={mdiTrashCan}
+              size={1}
+              color={themeCtx.getStatusColors().danger}
+            />
+            <Icon
+              path={mdiPencil}
+              size={1}
+              color={themeCtx.getStatusColors().warning}
+            />
+          </>
+        )}
         {!approved && (
           <Icon
             path={mdiCheck}
@@ -44,7 +49,7 @@ const MessageCard = ({
           style={{
             backgroundColor: approved
               ? 'white'
-              : themeCtx.getColors().tertiary.shade,
+              : themeCtx.getColorsByMode().colors.tertiary.shade,
           }}
         >
           <div className="card-header-title">{title}</div>
@@ -64,11 +69,13 @@ const MessageCard = ({
             <p>{content}</p>
             <br />
             <br />
-            <time>{date.toString()}</time>
           </div>
         </div>
         <div className="base-actions">
-          replies: {replies ? replies.length : 0}
+          <div id="repbtn">
+            <time>{date.toString()}</time>
+          </div>
+          <div id="repamt">replies: {replies ? replies.length : 0}</div>
         </div>
       </div>
     </div>

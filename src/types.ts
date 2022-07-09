@@ -37,6 +37,7 @@ export interface CaptureUser {
 }
 
 export interface Replies {
+  _id?: string;
   from: CaptureUser;
   reply: string;
   date: Date | string;
@@ -82,8 +83,9 @@ export interface ButtonProps {
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface MessageCardProps extends Message {
+export interface MessageProps extends Message {
   role?: string;
+  isMessagePage?: boolean;
 }
 
 export interface AssignmentBlockProps extends Assignment {
@@ -100,6 +102,13 @@ export interface TouchableOpacityProps {
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+// Enum
+export enum ForumTabEnum {
+  MAIN = 'MAIN',
+  PRIVATE = 'PRIVATE',
+  REJECTED = 'REJECTED',
+}
+
 // Theming
 export interface ColorProfile {
   origin: string;
@@ -108,6 +117,18 @@ export interface ColorProfile {
 }
 
 export interface Colors {
+  primaryLight: ColorProfile;
+  primaryDark: ColorProfile;
+  primaryPale: ColorProfile;
+  secondaryLight: ColorProfile;
+  secondaryDark: ColorProfile;
+  secondaryPale: ColorProfile;
+  tertiaryLight: ColorProfile;
+  tertiaryDark: ColorProfile;
+  tertiaryPale: ColorProfile;
+}
+
+export interface ColorsMode {
   primary: ColorProfile;
   secondary: ColorProfile;
   tertiary: ColorProfile;
@@ -124,6 +145,7 @@ export interface ColorsByMode {
   text: string;
   tint: string;
   complementary: string;
+  colors: ColorsMode;
 }
 
 export type ThemeBuilderProps = {
