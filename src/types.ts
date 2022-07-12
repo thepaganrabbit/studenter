@@ -176,12 +176,6 @@ export type ThemeBuilderProps = {
   mode: ModeSelect;
 };
 
-export type Backgrounds = {
-  backgroundDark: string;
-  backgroundLight: string;
-  backgroundPale: string;
-};
-
 export type TextColors = {
   textColorDark: string;
   textColorLight: string;
@@ -197,11 +191,7 @@ export type StatusColors = {
 export interface Theming {
   setMode(mode: ModeSelect): void;
   getMode(): string;
-  getBackgrounds(): Backgrounds;
-  getHighlight(): string;
-  getColors(): Colors;
-  setCurrentBackground(background: string): void;
-  getCurrentBackground(): string;
+  getColors(): ColorsMode;
   getBackgroundColor(): string;
   getTextColor(): string;
   getTint(): string;
