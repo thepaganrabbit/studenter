@@ -58,6 +58,8 @@ export const sample_store = init({
             content: 'this is a message from Andy',
             date: format(new Date(), 'yyyy/dd/MM'),
             status: false,
+            approved: true,
+            replies:[],
           },
           {
             _id: 'jsjsuide',
@@ -67,6 +69,8 @@ export const sample_store = init({
             content: 'this is a message from Andy',
             date: format(new Date(), 'yyyy/dd/MM'),
             status: false,
+            approved: true,
+            replies:[],
           },
         ],
       },

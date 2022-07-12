@@ -121,6 +121,11 @@ export class ThemeBuilder implements Theming {
           text: this.textColorDark,
           tint: this.tintColorDark,
           complementary: this.complementaryColorDark,
+          colors: {
+            primary: this.colors.primaryDark,
+            secondary: this.colors.secondaryDark,
+            tertiary: this.colors.tertiaryDark,
+          },
         };
       case ModeSelect.PALE:
         return {
@@ -128,6 +133,11 @@ export class ThemeBuilder implements Theming {
           text: this.textColorPale,
           tint: this.tintColorPale,
           complementary: this.complementaryColorPale,
+          colors: {
+            primary: this.colors.primaryPale,
+            secondary: this.colors.secondaryPale,
+            tertiary: this.colors.tertiaryPale,
+          },
         };
       default:
         return {
@@ -135,6 +145,11 @@ export class ThemeBuilder implements Theming {
           text: this.textColorLight,
           tint: this.tintColorLight,
           complementary: this.complimentaryColorLight,
+          colors: {
+            primary: this.colors.primaryLight,
+            secondary: this.colors.secondaryLight,
+            tertiary: this.colors.tertiaryLight,
+          },
         };
     }
   }

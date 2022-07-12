@@ -1,6 +1,6 @@
 import { createModel } from '@rematch/core';
 import { format } from 'date-fns';
-import { Message, RootModel, Assignment } from '../../types';
+import { RootModel, Assignment } from '../../types';
 
 type ComplexTestState = {
   assignments: Assignment[];
@@ -31,7 +31,7 @@ export const assignment_mod = createModel<RootModel>()({
         classId: '445tg5rt4',
       },
       {
-        _id: '344df',
+        _id: '34s4df',
         title: 'Methods Of Distraction',
         description: 'How does one distract a person - METHODS',
         points: 3,

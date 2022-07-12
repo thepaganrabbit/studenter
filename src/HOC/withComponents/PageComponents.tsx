@@ -12,8 +12,8 @@ const withComponents = (Component: any) => {
     return (
       <div
         style={{
-          backgroundColor: styleCtx.getColors().primary.origin,
-          color: styleCtx.getColors().secondary.tint,
+          backgroundColor: styleCtx.getColorsByMode().colors.primary.origin,
+          color: styleCtx.getColorsByMode().colors.secondary.tint,
         }}
         className="with-components"
       >

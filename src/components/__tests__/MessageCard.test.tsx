@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MessageCardProps } from '../../types';
 import { theme, ThemeContext } from '../../theme';
 import MessageCard from '../MessageCard/MessageCard';
 import { format } from 'date-fns';
+import { MessageProps } from '../../types';
 
 describe('MessageBoard Test', () => {
-  const sample_message = {
+  const sample_message: MessageProps = {
     _id: 'jsjsuie',
     title: 'Wondering how it works?',
     sender: { fromId: '334d433', name: 'Andy' },
@@ -14,9 +14,10 @@ describe('MessageBoard Test', () => {
     content: 'this is a message from Andy',
     date: format(new Date(), 'yyyy/dd/MM'),
     status: false,
+    approved: true,
     replies: [],
   };
-  const exec = (props: MessageCardProps) => {
+  const exec = (props: MessageProps) => {
     return render(
       <ThemeContext.Provider value={theme}>
         <MessageCard {...props} />
@@ -39,8 +40,6 @@ describe('MessageBoard Test', () => {
     const msgBrd = await exec(sample_message).container.querySelector(
       '.content',
     );
-    expect(msgBrd!.querySelector('p')?.innerHTML).toBe(
-      sample_message.content,
-    );
+    expect(msgBrd!.querySelector('p')?.innerHTML).toBe(sample_message.content);
   });
 });

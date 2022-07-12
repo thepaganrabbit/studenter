@@ -27,20 +27,50 @@ export const THEMESETTINGS: ThemeBuilderProps = {
   complementaryColorPale: '#E27E79',
   mode: ModeSelect.LIGHT,
   colors: {
-    primary: {
+    primaryDark: {
       origin: '#004369',
       tint: '#99b4c3',
       shade: '#00283f',
     },
-    secondary: {
+    primaryLight: {
+      origin: '#0280c7',
+      tint: '#609dbf',
+      shade: '#265b78',
+    },
+    primaryPale: {
+      origin: '#76b7db',
+      tint: '#aedaf2',
+      shade: '#89a4b3',
+    },
+    secondaryLight: {
       origin: '#01949A',
       tint: '#99d4d7',
       shade: '#01686c',
     },
-    tertiary: {
+    secondaryDark: {
+      origin: '#026c70',
+      tint: '#67888a',
+      shade: '#23484a',
+    },
+    secondaryPale: {
+      origin: '#8cd8db',
+      tint: '#b9eef0',
+      shade: '#87a7a8',
+    },
+    tertiaryPale: {
       origin: '#E5DDC8',
       tint: '#f2eee4',
       shade: '#898578',
+    },
+    tertiaryDark: {
+      origin: '#7d672f',
+      tint: '#8a7b57',
+      shade: '#524832',
+    },
+    tertiaryLight: {
+      origin: '#f7c452',
+      tint: '#fad98e',
+      shade: '#ba9b54',
     },
   },
 };

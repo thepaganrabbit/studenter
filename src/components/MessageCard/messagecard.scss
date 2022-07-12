@@ -1,14 +1,23 @@
 .msg-box {
-    position: relative;
+  position: relative;
   .actions {
     display: flex;
     position: absolute;
+    text-align: right;
     z-index: 1000000;
-    left: 65%;
     top: -10px;
   }
   .base-actions {
-    text-align: right;
-    padding-right: 0.5rem;
+    display: grid;
+    padding: 0.5em;
+    grid-template-areas: 'rep num';
+    #repbtn {
+      grid-area: rep;
+      text-align: left;
+    }
+    #repamt {
+      grid-area: num;
+      text-align: center;
+    }
   }
 }
