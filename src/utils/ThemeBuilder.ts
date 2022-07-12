@@ -1,7 +1,7 @@
 import {
-  Backgrounds,
   Colors,
   ColorsByMode,
+  ColorsMode,
   ModeSelect,
   StatusColors,
   TextColors,
@@ -47,31 +47,27 @@ export class ThemeBuilder implements Theming {
   getMode(): string {
     return this.mode;
   }
-  setCurrentBackground(background: string): void {
-    this.currentBackground = background;
-  }
-  getCurrentBackground(): string {
-    return this.currentBackground;
-  }
-  getBackgrounds(): Backgrounds {
-    return {
-      backgroundLight: this.backgroundLight,
-      backgroundDark: this.backgroundDark,
-      backgroundPale: this.backgroundPale,
-    };
-  }
-  getTexts(): TextColors {
-    return {
-      textColorLight: this.textColorLight,
-      textColorDark: this.textColorDark,
-      textColorPale: this.textColorPale,
-    };
-  }
-  getHighlight(): string {
-    return this.tint;
-  }
-  getColors(): Colors {
-    return this.colors;
+  getColors(): ColorsMode {
+    switch(this.mode) {
+      case ModeSelect.DARK:
+        return {    
+            primary: this.colors.primaryDark,
+            secondary: this.colors.secondaryDark,
+            tertiary: this.colors.tertiaryDark,
+        };
+      case ModeSelect.PALE:
+        return {
+            primary: this.colors.primaryPale,
+            secondary: this.colors.secondaryPale,
+            tertiary: this.colors.tertiaryPale,
+        };
+      default:
+        return {
+            primary: this.colors.primaryLight,
+            secondary: this.colors.secondaryLight,
+            tertiary: this.colors.tertiaryLight,
+        };
+    }
   }
   getBackgroundColor(): string {
     switch (this.mode) {
