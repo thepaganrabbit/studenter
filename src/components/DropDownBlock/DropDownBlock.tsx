@@ -12,7 +12,6 @@ const DropDownBlock = ({
   title,
   sender,
   content,
-  status,
   date,
   to,
   replies,

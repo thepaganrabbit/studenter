@@ -11,7 +11,9 @@ const MainForum = () => {
     <div className="main-fourm">
       {messages.length > 0 ? (
         messages.map((message) => {
-          return <DropDownBlock key={message._id} {...message} />;
+          return (
+            message.approved && <DropDownBlock key={message._id} {...message} />
+          );
         })
       ) : (
         <p>No messages posted in the forum.</p>
