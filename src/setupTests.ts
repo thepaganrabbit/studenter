@@ -59,7 +59,7 @@ export const sample_store = init({
             date: format(new Date(), 'yyyy/dd/MM'),
             status: false,
             approved: true,
-            replies:[],
+            replies: [],
           },
           {
             _id: 'jsjsuide',
@@ -70,7 +70,7 @@ export const sample_store = init({
             date: format(new Date(), 'yyyy/dd/MM'),
             status: false,
             approved: true,
-            replies:[],
+            replies: [],
           },
         ],
       },

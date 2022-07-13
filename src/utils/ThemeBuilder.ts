@@ -48,24 +48,24 @@ export class ThemeBuilder implements Theming {
     return this.mode;
   }
   getColors(): ColorsMode {
-    switch(this.mode) {
+    switch (this.mode) {
       case ModeSelect.DARK:
-        return {    
-            primary: this.colors.primaryDark,
-            secondary: this.colors.secondaryDark,
-            tertiary: this.colors.tertiaryDark,
+        return {
+          primary: this.colors.primaryDark,
+          secondary: this.colors.secondaryDark,
+          tertiary: this.colors.tertiaryDark,
         };
       case ModeSelect.PALE:
         return {
-            primary: this.colors.primaryPale,
-            secondary: this.colors.secondaryPale,
-            tertiary: this.colors.tertiaryPale,
+          primary: this.colors.primaryPale,
+          secondary: this.colors.secondaryPale,
+          tertiary: this.colors.tertiaryPale,
         };
       default:
         return {
-            primary: this.colors.primaryLight,
-            secondary: this.colors.secondaryLight,
-            tertiary: this.colors.tertiaryLight,
+          primary: this.colors.primaryLight,
+          secondary: this.colors.secondaryLight,
+          tertiary: this.colors.tertiaryLight,
         };
     }
   }
