@@ -8,8 +8,8 @@ describe('Drop Down Block Test', () => {
   const sample_message = {
     _id: 'jsjsuie',
     title: 'Wondering how it works?',
-    sender: { fromId: '334d433', name: 'Andy' },
-    to: { fromId: '323423dd', name: 'Sammy' },
+    sender: { userId: '334d433', name: 'Andy' },
+    to: { userId: '323423dd', name: 'Sammy' },
     content: 'this is a message from Andy',
     date: format(new Date(), 'yyyy/dd/MM'),
     status: false,
@@ -46,7 +46,7 @@ describe('Drop Down Block Test', () => {
     const to = await exec(sample_message).container.querySelectorAll(
       '.from > p',
     )[1].innerHTML;
-    expect(to).toBe(sample_message.to.name);
+    expect(to.split(' ')[1]).toBe(sample_message.to.name);
   });
   it(`it should render the posted date ${sample_message.date}`, async () => {
     const posted = await exec(sample_message).container.querySelector('.posted')

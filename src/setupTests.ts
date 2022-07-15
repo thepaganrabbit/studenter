@@ -5,6 +5,7 @@
 import { init } from '@rematch/core';
 import '@testing-library/jest-dom';
 import { format } from 'date-fns';
+import { Message } from './types';
 
 // Handles issue from MUI and jsdowm issues
 beforeEach(() => {
@@ -74,6 +75,69 @@ export const sample_store = init({
           },
         ],
       },
+      reducers: {
+        allMessages(state, payload: Message[]) {
+          return {
+            messages: payload,
+          };
+        },
+      },
+      effects: (dispatch:any) => ({
+        async getMessages() {
+          dispatch.message_mod.allMessages([
+            {
+              _id: 'jsjsuie',
+              title: 'Wondering how it works?',
+              sender: { fromId: '334d433', name: 'Andy' },
+              to: { fromId: '323423dd', name: 'Sammy' },
+              content: 'this is a message from Andy',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: true,
+              replies: [],
+            },
+            {
+              _id: 'jsjsuide',
+              title: 'Wondering how it works?',
+              sender: { fromId: '334d433', name: 'Andy' },
+              to: { fromId: '323423dd', name: 'Sammy' },
+              content: 'this is a message from Andy',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: true,
+              replies: [],
+            },
+          ]);
+        },
+        async getPersonalMessages(userId: string) {
+          dispatch.message_mod.allMessages([
+            {
+              _id: 'jsjsuie',
+              title: 'Wondering how it works?',
+              sender: { fromId: '334d433', name: 'Andy' },
+              to: { fromId: '323423dd', name: 'Sammy' },
+              content: 'this is a message from Andy',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: true,
+              isPrivate: true,
+              replies: [],
+            },
+            {
+              _id: 'jsjsuide',
+              title: 'Wondering how it works?',
+              sender: { fromId: '334d433', name: 'Andy' },
+              to: { fromId: '323423dd', name: 'Sammy' },
+              content: 'this is a message from Andy',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: true,
+              isPrivate: true,
+              replies: [],
+            },
+          ],);
+        },
+      }),
     },
     assignment_mod: {
       state: {
