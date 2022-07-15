@@ -6,6 +6,7 @@ import { ThemeBuilder } from '../../utils/ThemeBuilder';
 import { ForumTabEnum } from '../../types';
 import MainForum from './MainForum/MainForum';
 import SwitchComponentFactory from '../../utils/SwitchComponents';
+import PrivateForum from './PrivateForum/PrivateForum';
 
 const Forum = () => {
   const themeCtx = React.useContext<ThemeBuilder>(ThemeContext);
@@ -25,17 +26,25 @@ const Forum = () => {
           <li
             className={tabSelection === ForumTabEnum.MAIN ? 'is-active' : ''}
             onClick={() => setTagSelection(ForumTabEnum.MAIN)}
+            data-testid="main forum tab"
           >
             <a>Forum</a>
           </li>
           <li
             className={tabSelection === ForumTabEnum.PRIVATE ? 'is-active' : ''}
             onClick={() => setTagSelection(ForumTabEnum.PRIVATE)}
+            data-testid="private forum tab"
           >
             <a>Private</a>
           </li>
-          <li>
-            <a>Rejected</a>
+          <li
+            className={
+              tabSelection === ForumTabEnum.REVIEWREJECT ? 'is-active' : ''
+            }
+            onClick={() => setTagSelection(ForumTabEnum.REVIEWREJECT)}
+            data-testid="review forum tab"
+          >
+            <a>Review & Reject</a>
           </li>
         </ul>
       </div>
@@ -43,7 +52,8 @@ const Forum = () => {
         {SwitchComponentFactory({
           components: [
             { name: ForumTabEnum.MAIN, component: <MainForum /> },
-            { name: ForumTabEnum.PRIVATE, component: <>second</> },
+            { name: ForumTabEnum.PRIVATE, component: <PrivateForum /> },
+            { name: ForumTabEnum.REVIEWREJECT, component: <>Revie&Reject</> },
           ],
           selection: tabSelection,
         })}

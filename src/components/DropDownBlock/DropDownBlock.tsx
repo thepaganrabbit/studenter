@@ -47,7 +47,7 @@ const DropDownBlock = ({
           </div>
           <div className="from">
             from:<p>{sender.name}</p>
-            To: <p>{to?.name}</p>
+            {to && <p>To: {to?.name}</p>}
           </div>
           <div className="posted">{date.toString()}</div>
         </div>

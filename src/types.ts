@@ -5,6 +5,7 @@ import { test_mod } from './store/models/Test.model';
 import { student_mod } from './store/models/Student.model';
 import { message_mod } from './store/models/Messages.model';
 import { assignment_mod } from './store/models/Assignment.model';
+import { AxiosResponse } from 'axios';
 
 // Store
 export interface RootModel extends Models<RootModel> {
@@ -32,7 +33,7 @@ export interface Student {
 }
 
 export interface CaptureUser {
-  fromId: StudentId | InstructorId;
+  userId: StudentId | InstructorId;
   name: string;
 }
 
@@ -53,6 +54,7 @@ export interface Message {
   replies: Replies[];
   approved: boolean;
   to?: CaptureUser;
+  isPrivate?: boolean;
 }
 
 export interface Assignment {
@@ -106,7 +108,49 @@ export interface TouchableOpacityProps {
 export enum ForumTabEnum {
   MAIN = 'MAIN',
   PRIVATE = 'PRIVATE',
-  REJECTED = 'REJECTED',
+  REVIEWREJECT = 'REVIEWREJECT',
+}
+
+// Service -> API related
+
+export type SendUser = {
+  userId: string;
+  name: string;
+};
+
+export interface Response<T> {
+  data: AxiosResponse | T;
+  status?: number;
+  message?: string;
+}
+
+export interface PackageOptions<T> {
+  data: T;
+  type?: string;
+  user?: SendUser;
+  specifiedRoute?: string;
+}
+
+export class Package<T> {
+  data: T;
+  type?: string;
+  user?: SendUser;
+  specifiedRoute?: string;
+  constructor(props: PackageOptions<T>) {
+    this.data = props.data;
+    this.type = props.type;
+    this.user = props.user;
+    this.specifiedRoute = props.specifiedRoute;
+  }
+}
+
+export class Service {
+  protected baseUrl: string;
+  protected errors: Error | string | null;
+  constructor() {
+    this.baseUrl = '';
+    this.errors = null;
+  }
 }
 
 // Theming
