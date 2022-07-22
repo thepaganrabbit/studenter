@@ -7,6 +7,7 @@ import { ForumTabEnum } from '../../types';
 import MainForum from './MainForum/MainForum';
 import SwitchComponentFactory from '../../utils/SwitchComponents';
 import PrivateForum from './PrivateForum/PrivateForum';
+import ReviewForum from './Review/ReviewForum';
 
 const Forum = () => {
   const themeCtx = React.useContext<ThemeBuilder>(ThemeContext);
@@ -53,7 +54,7 @@ const Forum = () => {
           components: [
             { name: ForumTabEnum.MAIN, component: <MainForum /> },
             { name: ForumTabEnum.PRIVATE, component: <PrivateForum /> },
-            { name: ForumTabEnum.REVIEWREJECT, component: <>Revie&Reject</> },
+            { name: ForumTabEnum.REVIEWREJECT, component: <ReviewForum /> },
           ],
           selection: tabSelection,
         })}

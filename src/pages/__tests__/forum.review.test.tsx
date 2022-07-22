@@ -4,15 +4,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { sample_store } from '../../setupTests';
 import { Provider } from 'react-redux';
 import { theme, ThemeContext } from '../../theme';
-import PrivateForum from '../Forum/PrivateForum/PrivateForum';
+import ReviewForum from '../Forum/Review/ReviewForum';
 
-describe('Forum -> Private Tests', () => {
+describe('Forum -> Review Tests', () => {
   const exec = () => {
     return render(
       <BrowserRouter>
         <ThemeContext.Provider value={theme}>
           <Provider store={sample_store}>
-            <PrivateForum />
+            <ReviewForum />
           </Provider>
         </ThemeContext.Provider>
       </BrowserRouter>,
@@ -24,7 +24,7 @@ describe('Forum -> Private Tests', () => {
   });
   it('should render the main forum', async () => {
     const wrapper = await exec();
-    const main_forum = wrapper.container.querySelector('.private-forum');
+    const main_forum = wrapper.container.querySelector('.review-forum');
     expect(main_forum).toBeDefined();
   });
   it('should render more than one message', async () => {

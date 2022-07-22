@@ -31,4 +31,10 @@ describe('Store tests - Message_mod', () => {
     await store.dispatch({ type: 'message_mod/getPersonalMessages' });
     expect(mock).toHaveBeenCalled();
   });
+  it('calls Get on service and sets array - review messages', async () => {
+    const mock = jest.fn().mockResolvedValueOnce([]);
+    MessageService.prototype.GET = mock;
+    await store.dispatch({ type: 'message_mod/getMessagesToReview' });
+    expect(mock).toHaveBeenCalled();
+  });
 });
