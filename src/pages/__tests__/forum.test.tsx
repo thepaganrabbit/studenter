@@ -61,4 +61,21 @@ describe('Forum Tests', () => {
     const li = (await privTab).classList;
     expect(li.contains('is-active')).toBeFalsy();
   });
+  it('should open review forum and have class active', async () => {
+    const wrapper = await exec();
+    const rivTab = await wrapper.findByTestId('review forum tab');
+    await fireEvent.click(rivTab as any);
+    const review_forum = wrapper.container.querySelector('.review-forum');
+    expect(review_forum).toBeDefined();
+    const li = (await rivTab).classList;
+    expect(li.contains('is-active')).toBeTruthy();
+  });
+  it('should not have class active - main', async () => {
+    const wrapper = await exec();
+    const rivTab = await wrapper.findByTestId('review forum tab');
+    const mainTab = await wrapper.findByTestId('main forum tab');
+    await fireEvent.click(mainTab as any);
+    const li = (await rivTab).classList;
+    expect(li.contains('is-active')).toBeFalsy();
+  });
 });

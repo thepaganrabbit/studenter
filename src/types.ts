@@ -147,8 +147,9 @@ export class Package<T> {
 export class Service {
   protected baseUrl: string;
   protected errors: Error | string | null;
-  constructor() {
-    this.baseUrl = '';
+  public endPoint?: string;
+  constructor(URL: string) {
+    this.baseUrl = URL;
     this.errors = null;
   }
 }

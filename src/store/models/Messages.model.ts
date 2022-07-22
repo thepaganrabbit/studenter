@@ -1,5 +1,4 @@
 import { createModel } from '@rematch/core';
-import { format } from 'date-fns';
 import { Message, RootModel } from '../../types';
 import { MessageService } from '../services/Messages.service';
 
@@ -29,6 +28,14 @@ export const message_mod = createModel<RootModel>()({
       const { data } = await service.GET<string>({
         data: userId,
         type: 'private',
+      });
+      dispatch.message_mod.allMessages(data as Message[]);
+    },
+    async getMessagesToReview(userId: string) {
+      const service = new MessageService();
+      const { data } = await service.GET<string>({
+        data: userId,
+        type: 'review',
       });
       dispatch.message_mod.allMessages(data as Message[]);
     },

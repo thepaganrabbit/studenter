@@ -82,7 +82,7 @@ export const sample_store = init({
           };
         },
       },
-      effects: (dispatch:any) => ({
+      effects: (dispatch: any) => ({
         async getMessages() {
           dispatch.message_mod.allMessages([
             {
@@ -135,7 +135,31 @@ export const sample_store = init({
               isPrivate: true,
               replies: [],
             },
-          ],);
+          ]);
+        },
+        async getMessagesToReview(userId: string) {
+          dispatch.message_mod.allMessages([
+            {
+              _id: '344rdsd',
+              title: 'Time?',
+              sender: { userId: '334d433', name: 'Andy' },
+              content: 'What time is class on Wednesday?',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: false,
+              replies: [],
+            },
+            {
+              _id: '344rdfsd',
+              title: 'Time?',
+              sender: { userId: '334d433', name: 'Andy' },
+              content: 'What time is class on dd Wednesday?',
+              date: format(new Date(), 'yyyy/dd/MM'),
+              status: false,
+              approved: false,
+              replies: [],
+            },
+          ]);
         },
       }),
     },

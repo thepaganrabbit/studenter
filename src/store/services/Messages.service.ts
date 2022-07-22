@@ -3,9 +3,10 @@ import { Message, Package, Response, Service } from '../../types';
 
 export class MessageService extends Service {
   constructor() {
-    super();
+    super('api base endpoint');
   }
   async GET<T>(data?: Package<T>): Promise<Response<Message[]>> {
+    this.endPoint = '/api-sample';
     if (data) {
       // gets personal messages
       if (data.type === 'private') {
